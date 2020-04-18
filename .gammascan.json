@@ -1,7 +1,7 @@
 {
 	"gammaAccess": {
-		"url": "http://192.168.2.24:3000",
-		"userName": "windows@embold.io",
+		"url": "http://192.168.2.52:3000",
+		"userName": "redhat@embold.io",
 		"password": "admin1234"
 	},
 	"repositories": [{
