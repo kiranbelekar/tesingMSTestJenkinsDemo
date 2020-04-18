@@ -1,13 +1,13 @@
 {
 	"gammaAccess": {
 		"url": "http://192.168.2.52:3000",
-		"userName": "redhat@embold.io",
+		"userName": "windows@embold.io",
 		"password": "admin1234"
 	},
 	"repositories": [{
 		"dataDir": "D:/mstestTemp",
 		"repository": {
-			"uid": "b7698a729ce6ae89f2cbd4bd9c897b62",
+			"uid": "f65eccd5aeda6db3a9e4b62b8200a174",
 			"projectName": "MS-Test",
 			"languages": [
 				"C_SHARP"
