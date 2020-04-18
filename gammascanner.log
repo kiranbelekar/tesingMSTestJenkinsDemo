@@ -1,0 +1,1085 @@
+2020-04-18 16:00:28.741 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain - Started analysis
+2020-04-18 16:00:29.229 [Thread-1] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqProxy - ZmqProxy [status-listener]: Starting proxy
+2020-04-18 16:00:29.229 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Started listener: MT: [status-listener@tcp://localhost:64514]
+2020-04-18 16:00:29.231 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker started
+2020-04-18 16:00:29.304 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.DataValidationStep - Corona Home is : D:\Analyzer\corona/
+2020-04-18 16:00:29.309 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.DataValidationStep - Corona Log is : D:/JenkinsSetup/workspace/kiranTestingMSBuild/gamma_logs/
+2020-04-18 16:00:29.310 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.UserValidationStep - Running user validation step. URL : http://192.168.2.24:3000/
+2020-04-18 16:00:50.669 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain - 
+Error in Gammascanner. Reason: 
+com.acellere.corona.scanboxwrapper.exception.ScanBoxWrapperException: Unable to connect to Gamma.
+	at com.acellere.corona.scanboxwrapper.GammaClient.validateUser(GammaClient.java:83) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.GammaClient.checkIfValidUser(GammaClient.java:98) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:34) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:26) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.GammaStepsExecutor.execute(GammaStepsExecutor.java:29) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain.main(StandaloneWrapperMain.java:49) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+Caused by: com.mashape.unirest.http.exceptions.UnirestException: org.apache.http.conn.ConnectTimeoutException: Connect to 192.168.2.24:3000 [/192.168.2.24] failed: connect timed out
+	at com.mashape.unirest.http.HttpClientHelper.request(HttpClientHelper.java:143) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.request.BaseRequest.asJson(BaseRequest.java:68) ~[unirest-java-1.4.9.jar:?]
+	at com.acellere.corona.scanboxwrapper.GammaClient.validateUser(GammaClient.java:78) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	... 7 more
+Caused by: org.apache.http.conn.ConnectTimeoutException: Connect to 192.168.2.24:3000 [/192.168.2.24] failed: connect timed out
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:150) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:353) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:380) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:107) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55) ~[httpclient-4.5.2.jar:4.5.2]
+	at com.mashape.unirest.http.HttpClientHelper.request(HttpClientHelper.java:138) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.request.BaseRequest.asJson(BaseRequest.java:68) ~[unirest-java-1.4.9.jar:?]
+	at com.acellere.corona.scanboxwrapper.GammaClient.validateUser(GammaClient.java:78) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	... 7 more
+Caused by: java.net.SocketTimeoutException: connect timed out
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method) ~[?:1.8.0_171]
+	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source) ~[?:1.8.0_171]
+	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source) ~[?:1.8.0_171]
+	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source) ~[?:1.8.0_171]
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source) ~[?:1.8.0_171]
+	at java.net.PlainSocketImpl.connect(Unknown Source) ~[?:1.8.0_171]
+	at java.net.SocksSocketImpl.connect(Unknown Source) ~[?:1.8.0_171]
+	at java.net.Socket.connect(Unknown Source) ~[?:1.8.0_171]
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:74) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:141) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:353) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:380) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:107) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55) ~[httpclient-4.5.2.jar:4.5.2]
+	at com.mashape.unirest.http.HttpClientHelper.request(HttpClientHelper.java:138) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.request.BaseRequest.asJson(BaseRequest.java:68) ~[unirest-java-1.4.9.jar:?]
+	at com.acellere.corona.scanboxwrapper.GammaClient.validateUser(GammaClient.java:78) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	... 7 more
+2020-04-18 16:00:50.679 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Stopping listener: MT: [status-listener@tcp://localhost:64514]
+2020-04-18 16:00:51.236 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker Exiting
+2020-04-18 16:00:51.236 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker Finished
+2020-04-18 16:00:51.237 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Destroying context: MT: [status-listener@tcp://localhost:64514]
+2020-04-18 16:00:51.237 [Thread-1] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqProxy - ZmqProxy [status-listener]: Finished proxy
+2020-04-18 16:00:51.241 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Stopped listener: MT: [status-listener@tcp://localhost:64514]
+2020-04-18 16:02:45.979 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain - Started analysis
+2020-04-18 16:02:46.492 [Thread-1] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqProxy - ZmqProxy [status-listener]: Starting proxy
+2020-04-18 16:02:46.493 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Started listener: MT: [status-listener@tcp://localhost:60301]
+2020-04-18 16:02:46.499 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker started
+2020-04-18 16:02:46.613 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.DataValidationStep - Corona Home is : D:\Analyzer\corona/
+2020-04-18 16:02:46.618 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.DataValidationStep - Corona Log is : D:/JenkinsSetup/workspace/kiranTestingMSBuild/gamma_logs/
+2020-04-18 16:02:46.619 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.UserValidationStep - Running user validation step. URL : http://192.168.2.24:3000/
+2020-04-18 16:02:49.220 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.UserValidationStep - User validation completed.
+2020-04-18 16:02:49.224 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Validating subsystem(s). Number of subsystem(s) found = [f65eccd5aeda6db3a9e4b62b8200a174]
+2020-04-18 16:02:56.227 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Number of valid subsystem(s) = 1
+2020-04-18 16:02:56.228 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Number of invalid subsystem(s) = 0
+2020-04-18 16:02:56.242 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Subsystem validation step completed
+2020-04-18 16:02:56.242 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Running scan box builder step.
+2020-04-18 16:02:56.249 [main] INFO  com.acellere.corona.scanboxwrapper.utils.RepositoryDataHelper - Setting Repository type to 'ZIP'
+2020-04-18 16:02:56.377 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Error while generating scanSetting json 
+com.acellere.corona.scanboxwrapper.exception.ScanBoxWrapperException: Base directory does not exists
+	at com.acellere.corona.scanboxwrapper.standalone.ScanBoxBeanTemplate.getUpdatedScanSettingsObj(ScanBoxBeanTemplate.java:90) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.generateJsonIfValidLicense(ScanSettingJsonGenerationStep.java:95) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:68) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:91) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:40) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:26) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.GammaStepsExecutor.execute(GammaStepsExecutor.java:29) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain.main(StandaloneWrapperMain.java:49) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+2020-04-18 16:02:56.380 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Error while creating Scansettings json for repository f65eccd5aeda6db3a9e4b62b8200a174
+2020-04-18 16:02:56.386 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain - 
+Error in Gammascanner. Reason: 
+com.acellere.corona.scanboxwrapper.exception.ScanBoxWrapperException: There are no subsystems to be analysed.
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:78) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:91) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:40) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:26) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.GammaStepsExecutor.execute(GammaStepsExecutor.java:29) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain.main(StandaloneWrapperMain.java:49) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+2020-04-18 16:02:56.387 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Stopping listener: MT: [status-listener@tcp://localhost:60301]
+2020-04-18 16:02:56.504 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker Exiting
+2020-04-18 16:02:56.505 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker Finished
+2020-04-18 16:02:56.506 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Destroying context: MT: [status-listener@tcp://localhost:60301]
+2020-04-18 16:02:56.508 [Thread-1] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqProxy - ZmqProxy [status-listener]: Finished proxy
+2020-04-18 16:02:56.517 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Stopped listener: MT: [status-listener@tcp://localhost:60301]
+2020-04-18 16:06:33.508 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain - Started analysis
+2020-04-18 16:06:34.109 [Thread-1] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqProxy - ZmqProxy [status-listener]: Starting proxy
+2020-04-18 16:06:34.112 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Started listener: MT: [status-listener@tcp://localhost:51814]
+2020-04-18 16:06:34.113 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker started
+2020-04-18 16:06:34.205 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.DataValidationStep - Corona Home is : D:\Analyzer\corona/
+2020-04-18 16:06:34.211 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.DataValidationStep - Corona Log is : D:/JenkinsSetup/workspace/kiranTestingMSBuild/gamma_logs/
+2020-04-18 16:06:34.212 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.UserValidationStep - Running user validation step. URL : http://192.168.2.24:3000/
+2020-04-18 16:06:35.797 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.UserValidationStep - User validation completed.
+2020-04-18 16:06:35.798 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Validating subsystem(s). Number of subsystem(s) found = [f65eccd5aeda6db3a9e4b62b8200a174]
+2020-04-18 16:06:36.867 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Number of valid subsystem(s) = 1
+2020-04-18 16:06:36.867 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Number of invalid subsystem(s) = 0
+2020-04-18 16:06:36.874 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Subsystem validation step completed
+2020-04-18 16:06:36.874 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Running scan box builder step.
+2020-04-18 16:06:36.877 [main] INFO  com.acellere.corona.scanboxwrapper.utils.RepositoryDataHelper - Setting Repository type to 'ZIP'
+2020-04-18 16:06:36.929 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Error while generating scanSetting json 
+com.acellere.corona.scanboxwrapper.exception.ScanBoxWrapperException: Base directory does not exists
+	at com.acellere.corona.scanboxwrapper.standalone.ScanBoxBeanTemplate.getUpdatedScanSettingsObj(ScanBoxBeanTemplate.java:90) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.generateJsonIfValidLicense(ScanSettingJsonGenerationStep.java:95) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:68) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:91) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:40) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:26) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.GammaStepsExecutor.execute(GammaStepsExecutor.java:29) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain.main(StandaloneWrapperMain.java:49) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+2020-04-18 16:06:36.933 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Error while creating Scansettings json for repository f65eccd5aeda6db3a9e4b62b8200a174
+2020-04-18 16:06:36.938 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain - 
+Error in Gammascanner. Reason: 
+com.acellere.corona.scanboxwrapper.exception.ScanBoxWrapperException: There are no subsystems to be analysed.
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:78) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:91) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:40) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:26) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.GammaStepsExecutor.execute(GammaStepsExecutor.java:29) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain.main(StandaloneWrapperMain.java:49) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+2020-04-18 16:06:36.939 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Stopping listener: MT: [status-listener@tcp://localhost:51814]
+2020-04-18 16:06:37.118 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker Exiting
+2020-04-18 16:06:37.119 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker Finished
+2020-04-18 16:06:37.120 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Destroying context: MT: [status-listener@tcp://localhost:51814]
+2020-04-18 16:06:37.122 [Thread-1] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqProxy - ZmqProxy [status-listener]: Finished proxy
+2020-04-18 16:06:37.127 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Stopped listener: MT: [status-listener@tcp://localhost:51814]
+2020-04-18 16:12:36.319 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain - Started analysis
+2020-04-18 16:12:36.786 [Thread-1] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqProxy - ZmqProxy [status-listener]: Starting proxy
+2020-04-18 16:12:36.786 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Started listener: MT: [status-listener@tcp://localhost:62452]
+2020-04-18 16:12:36.790 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker started
+2020-04-18 16:12:36.856 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.DataValidationStep - Corona Home is : D:\Analyzer\corona/
+2020-04-18 16:12:36.861 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.DataValidationStep - Corona Log is : D:/JenkinsSetup/workspace/kiranTestingMSBuild/gamma_logs/
+2020-04-18 16:12:36.861 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.UserValidationStep - Running user validation step. URL : http://192.168.2.24:3000/
+2020-04-18 16:12:37.697 [main] INFO  com.acellere.corona.scanboxwrapper.GammaClient - Either user is invalid or username/password is not given. Using token from input json
+2020-04-18 16:12:37.697 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.UserValidationStep - User validation completed.
+2020-04-18 16:12:37.698 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Validating subsystem(s). Number of subsystem(s) found = [f65eccd5aeda6db3a9e4b62b8200a174]
+2020-04-18 16:12:40.208 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Number of valid subsystem(s) = 1
+2020-04-18 16:12:40.209 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Number of invalid subsystem(s) = 0
+2020-04-18 16:12:40.223 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Subsystem validation step completed
+2020-04-18 16:12:40.223 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Running scan box builder step.
+2020-04-18 16:12:40.231 [main] INFO  com.acellere.corona.scanboxwrapper.utils.RepositoryDataHelper - Setting Repository type to 'ZIP'
+2020-04-18 16:12:40.298 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Error while generating scanSetting json 
+com.acellere.corona.scanboxwrapper.exception.ScanBoxWrapperException: Base directory does not exists
+	at com.acellere.corona.scanboxwrapper.standalone.ScanBoxBeanTemplate.getUpdatedScanSettingsObj(ScanBoxBeanTemplate.java:90) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.generateJsonIfValidLicense(ScanSettingJsonGenerationStep.java:95) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:68) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:91) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:40) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:26) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.GammaStepsExecutor.execute(GammaStepsExecutor.java:29) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain.main(StandaloneWrapperMain.java:49) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+2020-04-18 16:12:40.303 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Error while creating Scansettings json for repository f65eccd5aeda6db3a9e4b62b8200a174
+2020-04-18 16:12:40.308 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain - 
+Error in Gammascanner. Reason: 
+com.acellere.corona.scanboxwrapper.exception.ScanBoxWrapperException: There are no subsystems to be analysed.
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:78) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:91) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:40) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:26) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.GammaStepsExecutor.execute(GammaStepsExecutor.java:29) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain.main(StandaloneWrapperMain.java:49) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+2020-04-18 16:12:40.310 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Stopping listener: MT: [status-listener@tcp://localhost:62452]
+2020-04-18 16:12:40.793 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker Exiting
+2020-04-18 16:12:40.794 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker Finished
+2020-04-18 16:12:40.799 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Destroying context: MT: [status-listener@tcp://localhost:62452]
+2020-04-18 16:12:40.806 [Thread-1] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqProxy - ZmqProxy [status-listener]: Finished proxy
+2020-04-18 16:12:40.812 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Stopped listener: MT: [status-listener@tcp://localhost:62452]
+2020-04-18 16:16:09.975 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain - Started analysis
+2020-04-18 16:16:10.434 [Thread-1] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqProxy - ZmqProxy [status-listener]: Starting proxy
+2020-04-18 16:16:10.437 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Started listener: MT: [status-listener@tcp://localhost:49866]
+2020-04-18 16:16:10.440 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker started
+2020-04-18 16:16:10.503 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.DataValidationStep - Corona Home is : D:\Analyzer\corona/
+2020-04-18 16:16:10.508 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.DataValidationStep - Corona Log is : D:/JenkinsSetup/workspace/kiranTestingMSBuild/gamma_logs/
+2020-04-18 16:16:10.508 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.UserValidationStep - Running user validation step. URL : http://192.168.2.24:3000/
+2020-04-18 16:16:11.305 [main] INFO  com.acellere.corona.scanboxwrapper.GammaClient - Either user is invalid or username/password is not given. Using token from input json
+2020-04-18 16:16:11.306 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.UserValidationStep - User validation completed.
+2020-04-18 16:16:11.306 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Validating subsystem(s). Number of subsystem(s) found = [f65eccd5aeda6db3a9e4b62b8200a174]
+2020-04-18 16:16:28.502 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Number of valid subsystem(s) = 1
+2020-04-18 16:16:28.502 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Number of invalid subsystem(s) = 0
+2020-04-18 16:16:28.511 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Subsystem validation step completed
+2020-04-18 16:16:28.511 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Running scan box builder step.
+2020-04-18 16:16:28.518 [main] INFO  com.acellere.corona.scanboxwrapper.utils.RepositoryDataHelper - Setting Repository type to 'ZIP'
+2020-04-18 16:16:28.576 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Error while generating scanSetting json 
+com.acellere.corona.scanboxwrapper.exception.ScanBoxWrapperException: Base directory does not exists
+	at com.acellere.corona.scanboxwrapper.standalone.ScanBoxBeanTemplate.getUpdatedScanSettingsObj(ScanBoxBeanTemplate.java:90) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.generateJsonIfValidLicense(ScanSettingJsonGenerationStep.java:95) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:68) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:91) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:40) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:26) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.GammaStepsExecutor.execute(GammaStepsExecutor.java:29) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain.main(StandaloneWrapperMain.java:49) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+2020-04-18 16:16:28.580 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Error while creating Scansettings json for repository f65eccd5aeda6db3a9e4b62b8200a174
+2020-04-18 16:16:28.587 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain - 
+Error in Gammascanner. Reason: 
+com.acellere.corona.scanboxwrapper.exception.ScanBoxWrapperException: There are no subsystems to be analysed.
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:78) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:91) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:40) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:26) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.GammaStepsExecutor.execute(GammaStepsExecutor.java:29) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain.main(StandaloneWrapperMain.java:49) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+2020-04-18 16:16:28.587 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Stopping listener: MT: [status-listener@tcp://localhost:49866]
+2020-04-18 16:16:29.445 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker Exiting
+2020-04-18 16:16:29.445 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker Finished
+2020-04-18 16:16:29.445 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Destroying context: MT: [status-listener@tcp://localhost:49866]
+2020-04-18 16:16:29.447 [Thread-1] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqProxy - ZmqProxy [status-listener]: Finished proxy
+2020-04-18 16:16:29.451 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Stopped listener: MT: [status-listener@tcp://localhost:49866]
+2020-04-18 16:24:40.036 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain - Started analysis
+2020-04-18 16:24:40.559 [Thread-1] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqProxy - ZmqProxy [status-listener]: Starting proxy
+2020-04-18 16:24:40.560 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Started listener: MT: [status-listener@tcp://localhost:58492]
+2020-04-18 16:24:40.569 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker started
+2020-04-18 16:24:40.633 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.DataValidationStep - Corona Home is : D:\Analyzer\corona/
+2020-04-18 16:24:40.637 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.DataValidationStep - Corona Log is : D:/JenkinsSetup/workspace/kiranTestingMSBuild/gamma_logs/
+2020-04-18 16:24:40.638 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.UserValidationStep - Running user validation step. URL : http://192.168.2.24:3000/
+2020-04-18 16:24:41.413 [main] INFO  com.acellere.corona.scanboxwrapper.GammaClient - Either user is invalid or username/password is not given. Using token from input json
+2020-04-18 16:24:41.413 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.UserValidationStep - User validation completed.
+2020-04-18 16:24:41.414 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Validating subsystem(s). Number of subsystem(s) found = [f65eccd5aeda6db3a9e4b62b8200a174]
+2020-04-18 16:24:43.505 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Number of valid subsystem(s) = 1
+2020-04-18 16:24:43.506 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Number of invalid subsystem(s) = 0
+2020-04-18 16:24:43.518 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Subsystem validation step completed
+2020-04-18 16:24:43.518 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Running scan box builder step.
+2020-04-18 16:24:43.527 [main] INFO  com.acellere.corona.scanboxwrapper.utils.RepositoryDataHelper - Setting Repository type to 'ZIP'
+2020-04-18 16:24:43.606 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Error while generating scanSetting json 
+com.acellere.corona.scanboxwrapper.exception.ScanBoxWrapperException: Base directory does not exists
+	at com.acellere.corona.scanboxwrapper.standalone.ScanBoxBeanTemplate.getUpdatedScanSettingsObj(ScanBoxBeanTemplate.java:90) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.generateJsonIfValidLicense(ScanSettingJsonGenerationStep.java:95) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:68) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:91) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:40) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:26) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.GammaStepsExecutor.execute(GammaStepsExecutor.java:29) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain.main(StandaloneWrapperMain.java:49) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+2020-04-18 16:24:43.610 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Error while creating Scansettings json for repository f65eccd5aeda6db3a9e4b62b8200a174
+2020-04-18 16:24:43.615 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain - 
+Error in Gammascanner. Reason: 
+com.acellere.corona.scanboxwrapper.exception.ScanBoxWrapperException: There are no subsystems to be analysed.
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:78) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:91) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:40) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:26) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.GammaStepsExecutor.execute(GammaStepsExecutor.java:29) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain.main(StandaloneWrapperMain.java:49) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+2020-04-18 16:24:43.615 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Stopping listener: MT: [status-listener@tcp://localhost:58492]
+2020-04-18 16:24:44.572 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker Exiting
+2020-04-18 16:24:44.573 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker Finished
+2020-04-18 16:24:44.574 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Destroying context: MT: [status-listener@tcp://localhost:58492]
+2020-04-18 16:24:44.578 [Thread-1] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqProxy - ZmqProxy [status-listener]: Finished proxy
+2020-04-18 16:24:44.613 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Stopped listener: MT: [status-listener@tcp://localhost:58492]
+2020-04-18 16:50:23.002 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain - Started analysis
+2020-04-18 16:50:23.534 [Thread-1] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqProxy - ZmqProxy [status-listener]: Starting proxy
+2020-04-18 16:50:23.535 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Started listener: MT: [status-listener@tcp://localhost:61299]
+2020-04-18 16:50:23.539 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker started
+2020-04-18 16:50:23.604 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.DataValidationStep - Corona Home is : D:\Analyzer\corona/
+2020-04-18 16:50:23.608 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.DataValidationStep - Corona Log is : D:/JenkinsSetup/workspace/kiranTestingMSBuild/gamma_logs/
+2020-04-18 16:50:23.609 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.UserValidationStep - Running user validation step. URL : http://192.168.2.24:3000/
+2020-04-18 16:50:24.764 [main] INFO  com.acellere.corona.scanboxwrapper.GammaClient - Either user is invalid or username/password is not given. Using token from input json
+2020-04-18 16:50:24.764 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.UserValidationStep - User validation completed.
+2020-04-18 16:50:24.765 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Validating subsystem(s). Number of subsystem(s) found = [f65eccd5aeda6db3a9e4b62b8200a174]
+2020-04-18 16:51:38.222 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain - Started analysis
+2020-04-18 16:51:38.704 [Thread-1] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqProxy - ZmqProxy [status-listener]: Starting proxy
+2020-04-18 16:51:38.704 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Started listener: MT: [status-listener@tcp://localhost:61074]
+2020-04-18 16:51:38.708 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker started
+2020-04-18 16:51:38.771 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.DataValidationStep - Corona Home is : D:\Analyzer\corona/
+2020-04-18 16:51:38.776 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.DataValidationStep - Corona Log is : D:/JenkinsSetup/workspace/kiranTestingMSBuild/gamma_logs/
+2020-04-18 16:51:38.776 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.UserValidationStep - Running user validation step. URL : http://192.168.2.24:3000/
+2020-04-18 16:51:39.650 [main] INFO  com.acellere.corona.scanboxwrapper.GammaClient - Either user is invalid or username/password is not given. Using token from input json
+2020-04-18 16:51:39.650 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.UserValidationStep - User validation completed.
+2020-04-18 16:51:39.651 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Validating subsystem(s). Number of subsystem(s) found = [f65eccd5aeda6db3a9e4b62b8200a174]
+2020-04-18 16:51:41.271 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Number of valid subsystem(s) = 1
+2020-04-18 16:51:41.271 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Number of invalid subsystem(s) = 0
+2020-04-18 16:51:41.279 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Subsystem validation step completed
+2020-04-18 16:51:41.279 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Running scan box builder step.
+2020-04-18 16:51:41.285 [main] INFO  com.acellere.corona.scanboxwrapper.utils.RepositoryDataHelper - Setting Repository type to 'ZIP'
+2020-04-18 16:51:41.347 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Error while generating scanSetting json 
+com.acellere.corona.scanboxwrapper.exception.ScanBoxWrapperException: Base directory does not exists
+	at com.acellere.corona.scanboxwrapper.standalone.ScanBoxBeanTemplate.getUpdatedScanSettingsObj(ScanBoxBeanTemplate.java:90) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.generateJsonIfValidLicense(ScanSettingJsonGenerationStep.java:95) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:68) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:91) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:40) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:26) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.GammaStepsExecutor.execute(GammaStepsExecutor.java:29) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain.main(StandaloneWrapperMain.java:49) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+2020-04-18 16:51:41.351 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Error while creating Scansettings json for repository f65eccd5aeda6db3a9e4b62b8200a174
+2020-04-18 16:51:41.356 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain - 
+Error in Gammascanner. Reason: 
+com.acellere.corona.scanboxwrapper.exception.ScanBoxWrapperException: There are no subsystems to be analysed.
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:78) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:91) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:40) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:26) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.GammaStepsExecutor.execute(GammaStepsExecutor.java:29) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain.main(StandaloneWrapperMain.java:49) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+2020-04-18 16:51:41.356 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Stopping listener: MT: [status-listener@tcp://localhost:61074]
+2020-04-18 16:51:41.711 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker Exiting
+2020-04-18 16:51:41.711 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker Finished
+2020-04-18 16:51:41.711 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Destroying context: MT: [status-listener@tcp://localhost:61074]
+2020-04-18 16:51:41.712 [Thread-1] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqProxy - ZmqProxy [status-listener]: Finished proxy
+2020-04-18 16:51:41.716 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Stopped listener: MT: [status-listener@tcp://localhost:61074]
+2020-04-18 16:56:50.236 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain - Started analysis
+2020-04-18 16:56:50.720 [Thread-1] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqProxy - ZmqProxy [status-listener]: Starting proxy
+2020-04-18 16:56:50.721 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Started listener: MT: [status-listener@tcp://localhost:52756]
+2020-04-18 16:56:50.723 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker started
+2020-04-18 16:56:50.784 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.DataValidationStep - Corona Home is : D:\Analyzer\corona/
+2020-04-18 16:56:50.789 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.DataValidationStep - Corona Log is : D:/JenkinsSetup/workspace/kiranTestingMSBuild/gamma_logs/
+2020-04-18 16:56:50.789 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.UserValidationStep - Running user validation step. URL : http://192.168.2.24:3000/
+2020-04-18 16:56:51.669 [main] INFO  com.acellere.corona.scanboxwrapper.GammaClient - Either user is invalid or username/password is not given. Using token from input json
+2020-04-18 16:56:51.669 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.UserValidationStep - User validation completed.
+2020-04-18 16:56:51.670 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Validating subsystem(s). Number of subsystem(s) found = [f65eccd5aeda6db3a9e4b62b8200a174]
+2020-04-18 16:57:05.710 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Number of valid subsystem(s) = 1
+2020-04-18 16:57:05.712 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Number of invalid subsystem(s) = 0
+2020-04-18 16:57:05.725 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Subsystem validation step completed
+2020-04-18 16:57:05.725 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Running scan box builder step.
+2020-04-18 16:57:05.733 [main] INFO  com.acellere.corona.scanboxwrapper.utils.RepositoryDataHelper - Setting Repository type to 'ZIP'
+2020-04-18 16:57:05.874 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Error while generating scanSetting json 
+com.acellere.corona.scanboxwrapper.exception.ScanBoxWrapperException: Base directory does not exists
+	at com.acellere.corona.scanboxwrapper.standalone.ScanBoxBeanTemplate.getUpdatedScanSettingsObj(ScanBoxBeanTemplate.java:90) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.generateJsonIfValidLicense(ScanSettingJsonGenerationStep.java:95) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:68) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:91) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:40) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:26) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.GammaStepsExecutor.execute(GammaStepsExecutor.java:29) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain.main(StandaloneWrapperMain.java:49) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+2020-04-18 16:57:05.879 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Error while creating Scansettings json for repository f65eccd5aeda6db3a9e4b62b8200a174
+2020-04-18 16:57:05.888 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain - 
+Error in Gammascanner. Reason: 
+com.acellere.corona.scanboxwrapper.exception.ScanBoxWrapperException: There are no subsystems to be analysed.
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:78) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:91) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:40) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:26) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.GammaStepsExecutor.execute(GammaStepsExecutor.java:29) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain.main(StandaloneWrapperMain.java:49) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+2020-04-18 16:57:05.889 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Stopping listener: MT: [status-listener@tcp://localhost:52756]
+2020-04-18 16:57:06.728 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker Exiting
+2020-04-18 16:57:06.729 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker Finished
+2020-04-18 16:57:06.729 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Destroying context: MT: [status-listener@tcp://localhost:52756]
+2020-04-18 16:57:06.780 [Thread-1] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqProxy - ZmqProxy [status-listener]: Finished proxy
+2020-04-18 16:57:06.787 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Stopped listener: MT: [status-listener@tcp://localhost:52756]
+2020-04-18 17:20:11.827 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain - Started analysis
+2020-04-18 17:20:12.370 [Thread-1] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqProxy - ZmqProxy [status-listener]: Starting proxy
+2020-04-18 17:20:12.370 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Started listener: MT: [status-listener@tcp://localhost:51838]
+2020-04-18 17:20:12.375 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker started
+2020-04-18 17:20:12.434 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.DataValidationStep - Corona Home is : D:\Analyzer\corona/
+2020-04-18 17:20:12.439 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.DataValidationStep - Corona Log is : D:/JenkinsSetup/workspace/kiranTestingMSBuild/gamma_logs/
+2020-04-18 17:20:12.439 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.UserValidationStep - Running user validation step. URL : http://192.168.2.24:3000/
+2020-04-18 17:20:13.292 [main] INFO  com.acellere.corona.scanboxwrapper.GammaClient - Either user is invalid or username/password is not given. Using token from input json
+2020-04-18 17:20:13.292 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.UserValidationStep - User validation completed.
+2020-04-18 17:20:13.293 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Validating subsystem(s). Number of subsystem(s) found = [f65eccd5aeda6db3a9e4b62b8200a174]
+2020-04-18 17:20:33.354 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Error while validating subsystem f65eccd5aeda6db3a9e4b62b8200a174
+com.acellere.corona.scanboxwrapper.exception.ScanBoxWrapperException: Unable to validate subsystemf65eccd5aeda6db3a9e4b62b8200a174
+	at com.acellere.corona.scanboxwrapper.GammaClient.validateSubsystem(GammaClient.java:119) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:57) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:40) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:26) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.GammaStepsExecutor.execute(GammaStepsExecutor.java:29) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain.main(StandaloneWrapperMain.java:49) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+Caused by: com.mashape.unirest.http.exceptions.UnirestException: org.apache.http.conn.ConnectTimeoutException: Connect to 192.168.2.24:3000 [/192.168.2.24] failed: connect timed out
+	at com.mashape.unirest.http.HttpClientHelper.request(HttpClientHelper.java:143) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.request.BaseRequest.asString(BaseRequest.java:56) ~[unirest-java-1.4.9.jar:?]
+	at com.acellere.corona.scanboxwrapper.GammaClient.validateSubsystem(GammaClient.java:117) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	... 8 more
+Caused by: org.apache.http.conn.ConnectTimeoutException: Connect to 192.168.2.24:3000 [/192.168.2.24] failed: connect timed out
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:150) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:353) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:380) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:107) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55) ~[httpclient-4.5.2.jar:4.5.2]
+	at com.mashape.unirest.http.HttpClientHelper.request(HttpClientHelper.java:138) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.request.BaseRequest.asString(BaseRequest.java:56) ~[unirest-java-1.4.9.jar:?]
+	at com.acellere.corona.scanboxwrapper.GammaClient.validateSubsystem(GammaClient.java:117) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	... 8 more
+Caused by: java.net.SocketTimeoutException: connect timed out
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method) ~[?:1.8.0_151]
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85) ~[?:1.8.0_151]
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350) ~[?:1.8.0_151]
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206) ~[?:1.8.0_151]
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188) ~[?:1.8.0_151]
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172) ~[?:1.8.0_151]
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[?:1.8.0_151]
+	at java.net.Socket.connect(Socket.java:589) ~[?:1.8.0_151]
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:74) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:141) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:353) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:380) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:107) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55) ~[httpclient-4.5.2.jar:4.5.2]
+	at com.mashape.unirest.http.HttpClientHelper.request(HttpClientHelper.java:138) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.request.BaseRequest.asString(BaseRequest.java:56) ~[unirest-java-1.4.9.jar:?]
+	at com.acellere.corona.scanboxwrapper.GammaClient.validateSubsystem(GammaClient.java:117) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	... 8 more
+2020-04-18 17:20:33.382 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Number of valid subsystem(s) = 0
+2020-04-18 17:20:33.383 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Number of invalid subsystem(s) = 1
+2020-04-18 17:20:33.408 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain - 
+Error in Gammascanner. Reason: 
+com.acellere.corona.scanboxwrapper.exception.ScanBoxWrapperException: No subsystems are available for analysis
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:88) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:40) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:26) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.GammaStepsExecutor.execute(GammaStepsExecutor.java:29) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain.main(StandaloneWrapperMain.java:49) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+2020-04-18 17:20:33.408 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Stopping listener: MT: [status-listener@tcp://localhost:51838]
+2020-04-18 17:20:34.388 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker Exiting
+2020-04-18 17:20:34.388 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker Finished
+2020-04-18 17:20:34.389 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Destroying context: MT: [status-listener@tcp://localhost:51838]
+2020-04-18 17:20:34.389 [Thread-1] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqProxy - ZmqProxy [status-listener]: Finished proxy
+2020-04-18 17:20:34.392 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Stopped listener: MT: [status-listener@tcp://localhost:51838]
+2020-04-18 17:24:47.647 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain - Started analysis
+2020-04-18 17:24:48.181 [Thread-1] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqProxy - ZmqProxy [status-listener]: Starting proxy
+2020-04-18 17:24:48.182 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Started listener: MT: [status-listener@tcp://localhost:49889]
+2020-04-18 17:24:48.185 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker started
+2020-04-18 17:24:48.245 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.DataValidationStep - Corona Home is : D:\Analyzer\corona/
+2020-04-18 17:24:48.249 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.DataValidationStep - Corona Log is : D:/JenkinsSetup/workspace/kiranTestingMSBuild/gamma_logs/
+2020-04-18 17:24:48.249 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.UserValidationStep - Running user validation step. URL : http://192.168.2.24:3000/
+2020-04-18 17:24:49.141 [main] INFO  com.acellere.corona.scanboxwrapper.GammaClient - Either user is invalid or username/password is not given. Using token from input json
+2020-04-18 17:24:49.141 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.UserValidationStep - User validation completed.
+2020-04-18 17:24:49.142 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Validating subsystem(s). Number of subsystem(s) found = [f65eccd5aeda6db3a9e4b62b8200a174]
+2020-04-18 17:24:57.948 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Number of valid subsystem(s) = 1
+2020-04-18 17:24:57.952 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Number of invalid subsystem(s) = 0
+2020-04-18 17:24:57.962 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Subsystem validation step completed
+2020-04-18 17:24:57.963 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Running scan box builder step.
+2020-04-18 17:24:57.972 [main] INFO  com.acellere.corona.scanboxwrapper.utils.RepositoryDataHelper - Setting Repository type to 'ZIP'
+2020-04-18 17:24:58.050 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Error while generating scanSetting json 
+com.acellere.corona.scanboxwrapper.exception.ScanBoxWrapperException: Base directory does not exists
+	at com.acellere.corona.scanboxwrapper.standalone.ScanBoxBeanTemplate.getUpdatedScanSettingsObj(ScanBoxBeanTemplate.java:90) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.generateJsonIfValidLicense(ScanSettingJsonGenerationStep.java:95) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:68) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:91) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:40) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:26) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.GammaStepsExecutor.execute(GammaStepsExecutor.java:29) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain.main(StandaloneWrapperMain.java:49) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+2020-04-18 17:24:58.057 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Error while creating Scansettings json for repository f65eccd5aeda6db3a9e4b62b8200a174
+2020-04-18 17:24:58.065 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain - 
+Error in Gammascanner. Reason: 
+com.acellere.corona.scanboxwrapper.exception.ScanBoxWrapperException: There are no subsystems to be analysed.
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:78) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:91) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:40) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:26) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.GammaStepsExecutor.execute(GammaStepsExecutor.java:29) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain.main(StandaloneWrapperMain.java:49) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+2020-04-18 17:24:58.066 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Stopping listener: MT: [status-listener@tcp://localhost:49889]
+2020-04-18 17:24:58.191 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker Exiting
+2020-04-18 17:24:58.191 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker Finished
+2020-04-18 17:24:58.192 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Destroying context: MT: [status-listener@tcp://localhost:49889]
+2020-04-18 17:24:58.192 [Thread-1] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqProxy - ZmqProxy [status-listener]: Finished proxy
+2020-04-18 17:24:58.195 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Stopped listener: MT: [status-listener@tcp://localhost:49889]
+2020-04-18 17:29:25.961 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain - Started analysis
+2020-04-18 17:29:26.515 [Thread-1] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqProxy - ZmqProxy [status-listener]: Starting proxy
+2020-04-18 17:29:26.515 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Started listener: MT: [status-listener@tcp://localhost:54156]
+2020-04-18 17:29:26.520 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker started
+2020-04-18 17:29:26.617 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.DataValidationStep - Corona Home is : D:\Analyzer\corona/
+2020-04-18 17:29:26.624 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.DataValidationStep - Corona Log is : D:/JenkinsSetup/workspace/kiranTestingMSBuild/gamma_logs/
+2020-04-18 17:29:26.625 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.UserValidationStep - Running user validation step. URL : http://192.168.2.24:3000/
+2020-04-18 17:29:27.523 [main] INFO  com.acellere.corona.scanboxwrapper.GammaClient - Either user is invalid or username/password is not given. Using token from input json
+2020-04-18 17:29:27.523 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.UserValidationStep - User validation completed.
+2020-04-18 17:29:27.524 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Validating subsystem(s). Number of subsystem(s) found = [f65eccd5aeda6db3a9e4b62b8200a174]
+2020-04-18 17:29:37.634 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Number of valid subsystem(s) = 1
+2020-04-18 17:29:37.634 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Number of invalid subsystem(s) = 0
+2020-04-18 17:29:37.638 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Subsystem validation step completed
+2020-04-18 17:29:37.638 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Running scan box builder step.
+2020-04-18 17:29:37.642 [main] INFO  com.acellere.corona.scanboxwrapper.utils.RepositoryDataHelper - Setting Repository type to 'ZIP'
+2020-04-18 17:29:37.698 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Error while generating scanSetting json 
+com.acellere.corona.scanboxwrapper.exception.ScanBoxWrapperException: Base directory does not exists
+	at com.acellere.corona.scanboxwrapper.standalone.ScanBoxBeanTemplate.getUpdatedScanSettingsObj(ScanBoxBeanTemplate.java:90) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.generateJsonIfValidLicense(ScanSettingJsonGenerationStep.java:95) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:68) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:91) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:40) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:26) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.GammaStepsExecutor.execute(GammaStepsExecutor.java:29) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain.main(StandaloneWrapperMain.java:49) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+2020-04-18 17:29:37.701 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Error while creating Scansettings json for repository f65eccd5aeda6db3a9e4b62b8200a174
+2020-04-18 17:29:37.706 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain - 
+Error in Gammascanner. Reason: 
+com.acellere.corona.scanboxwrapper.exception.ScanBoxWrapperException: There are no subsystems to be analysed.
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:78) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:91) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:40) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:26) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.GammaStepsExecutor.execute(GammaStepsExecutor.java:29) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain.main(StandaloneWrapperMain.java:49) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+2020-04-18 17:29:37.707 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Stopping listener: MT: [status-listener@tcp://localhost:54156]
+2020-04-18 17:29:38.525 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker Exiting
+2020-04-18 17:29:38.526 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker Finished
+2020-04-18 17:29:38.528 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Destroying context: MT: [status-listener@tcp://localhost:54156]
+2020-04-18 17:29:38.532 [Thread-1] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqProxy - ZmqProxy [status-listener]: Finished proxy
+2020-04-18 17:29:38.540 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Stopped listener: MT: [status-listener@tcp://localhost:54156]
+2020-04-18 18:02:18.496 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain - Started analysis
+2020-04-18 18:02:18.983 [Thread-1] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqProxy - ZmqProxy [status-listener]: Starting proxy
+2020-04-18 18:02:18.985 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Started listener: MT: [status-listener@tcp://localhost:57393]
+2020-04-18 18:02:18.994 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker started
+2020-04-18 18:02:19.065 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.DataValidationStep - Corona Home is : D:\Analyzer\corona/
+2020-04-18 18:02:19.070 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.DataValidationStep - Corona Log is : D:/JenkinsSetup/workspace/kiranTestingMSBuild/gamma_logs/
+2020-04-18 18:02:19.071 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.UserValidationStep - Running user validation step. URL : http://192.168.2.24:3000/
+2020-04-18 18:02:20.110 [main] INFO  com.acellere.corona.scanboxwrapper.GammaClient - Either user is invalid or username/password is not given. Using token from input json
+2020-04-18 18:02:20.110 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.UserValidationStep - User validation completed.
+2020-04-18 18:02:20.112 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Validating subsystem(s). Number of subsystem(s) found = [f65eccd5aeda6db3a9e4b62b8200a174]
+2020-04-18 18:02:44.760 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Number of valid subsystem(s) = 1
+2020-04-18 18:02:44.761 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Number of invalid subsystem(s) = 0
+2020-04-18 18:02:44.765 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Subsystem validation step completed
+2020-04-18 18:02:44.765 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Running scan box builder step.
+2020-04-18 18:02:44.768 [main] INFO  com.acellere.corona.scanboxwrapper.utils.RepositoryDataHelper - Setting Repository type to 'ZIP'
+2020-04-18 18:02:44.824 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Error while generating scanSetting json 
+com.acellere.corona.scanboxwrapper.exception.ScanBoxWrapperException: Base directory does not exists
+	at com.acellere.corona.scanboxwrapper.standalone.ScanBoxBeanTemplate.getUpdatedScanSettingsObj(ScanBoxBeanTemplate.java:90) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.generateJsonIfValidLicense(ScanSettingJsonGenerationStep.java:95) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:68) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:91) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:40) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:26) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.GammaStepsExecutor.execute(GammaStepsExecutor.java:29) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain.main(StandaloneWrapperMain.java:49) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+2020-04-18 18:02:44.827 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Error while creating Scansettings json for repository f65eccd5aeda6db3a9e4b62b8200a174
+2020-04-18 18:02:44.833 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain - 
+Error in Gammascanner. Reason: 
+com.acellere.corona.scanboxwrapper.exception.ScanBoxWrapperException: There are no subsystems to be analysed.
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:78) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:91) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:40) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:26) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.GammaStepsExecutor.execute(GammaStepsExecutor.java:29) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain.main(StandaloneWrapperMain.java:49) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+2020-04-18 18:02:44.833 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Stopping listener: MT: [status-listener@tcp://localhost:57393]
+2020-04-18 18:02:45.000 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker Exiting
+2020-04-18 18:02:45.000 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker Finished
+2020-04-18 18:02:45.001 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Destroying context: MT: [status-listener@tcp://localhost:57393]
+2020-04-18 18:02:45.002 [Thread-1] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqProxy - ZmqProxy [status-listener]: Finished proxy
+2020-04-18 18:02:45.005 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Stopped listener: MT: [status-listener@tcp://localhost:57393]
+2020-04-18 18:36:53.478 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain - Started analysis
+2020-04-18 18:36:54.630 [Thread-1] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqProxy - ZmqProxy [status-listener]: Starting proxy
+2020-04-18 18:36:54.631 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Started listener: MT: [status-listener@tcp://localhost:56317]
+2020-04-18 18:36:54.637 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker started
+2020-04-18 18:36:54.688 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain - Total analysis time: 1 seconds
+2020-04-18 18:40:11.537 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain - Started analysis
+2020-04-18 18:40:12.001 [Thread-1] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqProxy - ZmqProxy [status-listener]: Starting proxy
+2020-04-18 18:40:12.001 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Started listener: MT: [status-listener@tcp://localhost:57753]
+2020-04-18 18:40:12.005 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker started
+2020-04-18 18:40:12.294 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.DataValidationStep - Corona Home is : D:\Analyzer\corona/
+2020-04-18 18:40:12.412 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.DataValidationStep - Corona Log is : D:/JenkinsSetup/workspace/kiranTestingMSBuild/gamma_logs/
+2020-04-18 18:40:12.413 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.UserValidationStep - Running user validation step. URL : http://192.168.2.24:3000/
+2020-04-18 18:40:14.442 [main] INFO  com.acellere.corona.scanboxwrapper.GammaClient - Either user is invalid or username/password is not given. Using token from input json
+2020-04-18 18:40:14.442 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.UserValidationStep - User validation completed.
+2020-04-18 18:40:14.443 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Validating subsystem(s). Number of subsystem(s) found = [f65eccd5aeda6db3a9e4b62b8200a174]
+2020-04-18 18:40:21.741 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Number of valid subsystem(s) = 1
+2020-04-18 18:40:21.742 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Number of invalid subsystem(s) = 0
+2020-04-18 18:40:21.788 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Subsystem validation step completed
+2020-04-18 18:40:21.789 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Running scan box builder step.
+2020-04-18 18:40:21.906 [main] INFO  com.acellere.corona.scanboxwrapper.utils.RepositoryDataHelper - Git is installed, git version 2.14.0.windows.2
+
+2020-04-18 18:40:21.907 [main] INFO  com.acellere.corona.scanboxwrapper.utils.RepositoryDataHelper - .git folder found in basedir also git is installed, setting Repository type to 'GIT'
+2020-04-18 18:40:22.788 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Validating license before analysis for subsystem f65eccd5aeda6db3a9e4b62b8200a174
+2020-04-18 18:40:22.801 [main] INFO  com.acellere.corona.cmx.msg.control.Sources - Base Dir D:/JenkinsSetup/workspace/kiranTestingMSBuild/
+2020-04-18 18:40:22.802 [main] INFO  com.acellere.corona.scanboxwrapper.utils.WrapperUtils - Calculating loc for directory D:/JenkinsSetup/workspace/kiranTestingMSBuild/
+2020-04-18 18:40:23.029 [main] INFO  com.acellere.corona.scanboxwrapper.utils.WrapperUtils - LOC result for directory D:\JenkinsSetup\workspace\kiranTestingMSBuild = 109 lines of code (82 comment, 18 blank)
+2020-04-18 18:40:23.947 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Error validating license for uid f65eccd5aeda6db3a9e4b62b8200a174
+com.acellere.corona.scanboxwrapper.exception.ScanBoxWrapperException: Error validating license
+	at com.acellere.corona.scanboxwrapper.GammaClient.validateLicense(GammaClient.java:199) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.isLicenseValid(ScanSettingJsonGenerationStep.java:134) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.generateJsonIfValidLicense(ScanSettingJsonGenerationStep.java:98) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:68) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:91) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:40) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:26) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.GammaStepsExecutor.execute(GammaStepsExecutor.java:29) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain.main(StandaloneWrapperMain.java:49) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+Caused by: com.mashape.unirest.http.exceptions.UnirestException: java.lang.RuntimeException: java.lang.RuntimeException: org.json.JSONException: A JSONArray text must start with '[' at 1 [character 2 line 1]
+	at com.mashape.unirest.http.HttpClientHelper.request(HttpClientHelper.java:143) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.request.BaseRequest.asJson(BaseRequest.java:68) ~[unirest-java-1.4.9.jar:?]
+	at com.acellere.corona.scanboxwrapper.GammaClient.validateLicense(GammaClient.java:191) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	... 12 more
+Caused by: java.lang.RuntimeException: java.lang.RuntimeException: org.json.JSONException: A JSONArray text must start with '[' at 1 [character 2 line 1]
+	at com.mashape.unirest.http.HttpResponse.<init>(HttpResponse.java:106) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.http.HttpClientHelper.request(HttpClientHelper.java:139) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.request.BaseRequest.asJson(BaseRequest.java:68) ~[unirest-java-1.4.9.jar:?]
+	at com.acellere.corona.scanboxwrapper.GammaClient.validateLicense(GammaClient.java:191) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	... 12 more
+Caused by: java.lang.RuntimeException: org.json.JSONException: A JSONArray text must start with '[' at 1 [character 2 line 1]
+	at com.mashape.unirest.http.JsonNode.<init>(JsonNode.java:51) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.http.HttpResponse.<init>(HttpResponse.java:95) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.http.HttpClientHelper.request(HttpClientHelper.java:139) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.request.BaseRequest.asJson(BaseRequest.java:68) ~[unirest-java-1.4.9.jar:?]
+	at com.acellere.corona.scanboxwrapper.GammaClient.validateLicense(GammaClient.java:191) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	... 12 more
+Caused by: org.json.JSONException: A JSONArray text must start with '[' at 1 [character 2 line 1]
+	at org.json.JSONTokener.syntaxError(JSONTokener.java:433) ~[json-20160212.jar:?]
+	at org.json.JSONArray.<init>(JSONArray.java:106) ~[json-20160212.jar:?]
+	at org.json.JSONArray.<init>(JSONArray.java:145) ~[json-20160212.jar:?]
+	at com.mashape.unirest.http.JsonNode.<init>(JsonNode.java:48) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.http.HttpResponse.<init>(HttpResponse.java:95) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.http.HttpClientHelper.request(HttpClientHelper.java:139) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.request.BaseRequest.asJson(BaseRequest.java:68) ~[unirest-java-1.4.9.jar:?]
+	at com.acellere.corona.scanboxwrapper.GammaClient.validateLicense(GammaClient.java:191) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	... 12 more
+2020-04-18 18:40:23.997 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Invalid license for repository f65eccd5aeda6db3a9e4b62b8200a174
+2020-04-18 18:40:23.998 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Error while creating Scansettings json for repository f65eccd5aeda6db3a9e4b62b8200a174
+2020-04-18 18:40:24.059 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain - 
+Error in Gammascanner. Reason: 
+com.acellere.corona.scanboxwrapper.exception.ScanBoxWrapperException: There are no subsystems to be analysed.
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:78) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:91) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:40) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:26) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.GammaStepsExecutor.execute(GammaStepsExecutor.java:29) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain.main(StandaloneWrapperMain.java:49) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+2020-04-18 18:40:24.060 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Stopping listener: MT: [status-listener@tcp://localhost:57753]
+2020-04-18 18:40:25.010 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker Exiting
+2020-04-18 18:40:25.010 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker Finished
+2020-04-18 18:40:25.010 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Destroying context: MT: [status-listener@tcp://localhost:57753]
+2020-04-18 18:40:25.012 [Thread-1] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqProxy - ZmqProxy [status-listener]: Finished proxy
+2020-04-18 18:40:25.014 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Stopped listener: MT: [status-listener@tcp://localhost:57753]
+2020-04-18 18:53:15.941 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain - Started analysis
+2020-04-18 18:53:16.402 [Thread-1] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqProxy - ZmqProxy [status-listener]: Starting proxy
+2020-04-18 18:53:16.403 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Started listener: MT: [status-listener@tcp://localhost:59231]
+2020-04-18 18:53:16.406 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker started
+2020-04-18 18:53:16.468 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.DataValidationStep - Corona Home is : D:\Analyzer\corona/
+2020-04-18 18:53:16.472 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.DataValidationStep - Corona Log is : D:/JenkinsSetup/workspace/kiranTestingMSBuild/gamma_logs/
+2020-04-18 18:53:16.473 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.UserValidationStep - Running user validation step. URL : http://192.168.2.24:3000/
+2020-04-18 18:53:17.366 [main] INFO  com.acellere.corona.scanboxwrapper.GammaClient - Either user is invalid or username/password is not given. Using token from input json
+2020-04-18 18:53:17.366 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.UserValidationStep - User validation completed.
+2020-04-18 18:53:17.367 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Validating subsystem(s). Number of subsystem(s) found = [f65eccd5aeda6db3a9e4b62b8200a174]
+2020-04-18 18:53:20.609 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Number of valid subsystem(s) = 1
+2020-04-18 18:53:20.609 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Number of invalid subsystem(s) = 0
+2020-04-18 18:53:20.620 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Subsystem validation step completed
+2020-04-18 18:53:20.620 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Running scan box builder step.
+2020-04-18 18:53:20.717 [main] INFO  com.acellere.corona.scanboxwrapper.utils.RepositoryDataHelper - Git is installed, git version 2.14.0.windows.2
+
+2020-04-18 18:53:20.717 [main] INFO  com.acellere.corona.scanboxwrapper.utils.RepositoryDataHelper - .git folder found in basedir also git is installed, setting Repository type to 'GIT'
+2020-04-18 18:53:21.017 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Validating license before analysis for subsystem f65eccd5aeda6db3a9e4b62b8200a174
+2020-04-18 18:53:21.024 [main] INFO  com.acellere.corona.cmx.msg.control.Sources - Base Dir D:/JenkinsSetup/workspace/kiranTestingMSBuild/
+2020-04-18 18:53:21.026 [main] INFO  com.acellere.corona.scanboxwrapper.utils.WrapperUtils - Calculating loc for directory D:/JenkinsSetup/workspace/kiranTestingMSBuild/
+2020-04-18 18:53:21.066 [main] INFO  com.acellere.corona.scanboxwrapper.utils.WrapperUtils - LOC result for directory D:\JenkinsSetup\workspace\kiranTestingMSBuild = 109 lines of code (82 comment, 18 blank)
+2020-04-18 18:53:21.207 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Error validating license for uid f65eccd5aeda6db3a9e4b62b8200a174
+com.acellere.corona.scanboxwrapper.exception.ScanBoxWrapperException: Error validating license
+	at com.acellere.corona.scanboxwrapper.GammaClient.validateLicense(GammaClient.java:199) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.isLicenseValid(ScanSettingJsonGenerationStep.java:134) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.generateJsonIfValidLicense(ScanSettingJsonGenerationStep.java:98) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:68) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:91) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:40) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:26) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.GammaStepsExecutor.execute(GammaStepsExecutor.java:29) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain.main(StandaloneWrapperMain.java:49) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+Caused by: com.mashape.unirest.http.exceptions.UnirestException: java.lang.RuntimeException: java.lang.RuntimeException: org.json.JSONException: A JSONArray text must start with '[' at 1 [character 2 line 1]
+	at com.mashape.unirest.http.HttpClientHelper.request(HttpClientHelper.java:143) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.request.BaseRequest.asJson(BaseRequest.java:68) ~[unirest-java-1.4.9.jar:?]
+	at com.acellere.corona.scanboxwrapper.GammaClient.validateLicense(GammaClient.java:191) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	... 12 more
+Caused by: java.lang.RuntimeException: java.lang.RuntimeException: org.json.JSONException: A JSONArray text must start with '[' at 1 [character 2 line 1]
+	at com.mashape.unirest.http.HttpResponse.<init>(HttpResponse.java:106) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.http.HttpClientHelper.request(HttpClientHelper.java:139) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.request.BaseRequest.asJson(BaseRequest.java:68) ~[unirest-java-1.4.9.jar:?]
+	at com.acellere.corona.scanboxwrapper.GammaClient.validateLicense(GammaClient.java:191) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	... 12 more
+Caused by: java.lang.RuntimeException: org.json.JSONException: A JSONArray text must start with '[' at 1 [character 2 line 1]
+	at com.mashape.unirest.http.JsonNode.<init>(JsonNode.java:51) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.http.HttpResponse.<init>(HttpResponse.java:95) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.http.HttpClientHelper.request(HttpClientHelper.java:139) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.request.BaseRequest.asJson(BaseRequest.java:68) ~[unirest-java-1.4.9.jar:?]
+	at com.acellere.corona.scanboxwrapper.GammaClient.validateLicense(GammaClient.java:191) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	... 12 more
+Caused by: org.json.JSONException: A JSONArray text must start with '[' at 1 [character 2 line 1]
+	at org.json.JSONTokener.syntaxError(JSONTokener.java:433) ~[json-20160212.jar:?]
+	at org.json.JSONArray.<init>(JSONArray.java:106) ~[json-20160212.jar:?]
+	at org.json.JSONArray.<init>(JSONArray.java:145) ~[json-20160212.jar:?]
+	at com.mashape.unirest.http.JsonNode.<init>(JsonNode.java:48) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.http.HttpResponse.<init>(HttpResponse.java:95) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.http.HttpClientHelper.request(HttpClientHelper.java:139) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.request.BaseRequest.asJson(BaseRequest.java:68) ~[unirest-java-1.4.9.jar:?]
+	at com.acellere.corona.scanboxwrapper.GammaClient.validateLicense(GammaClient.java:191) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	... 12 more
+2020-04-18 18:53:21.214 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Invalid license for repository f65eccd5aeda6db3a9e4b62b8200a174
+2020-04-18 18:53:21.214 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Error while creating Scansettings json for repository f65eccd5aeda6db3a9e4b62b8200a174
+2020-04-18 18:53:21.222 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain - 
+Error in Gammascanner. Reason: 
+com.acellere.corona.scanboxwrapper.exception.ScanBoxWrapperException: There are no subsystems to be analysed.
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:78) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:91) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:40) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:26) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.GammaStepsExecutor.execute(GammaStepsExecutor.java:29) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain.main(StandaloneWrapperMain.java:49) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+2020-04-18 18:53:21.222 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Stopping listener: MT: [status-listener@tcp://localhost:59231]
+2020-04-18 18:53:21.410 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker Exiting
+2020-04-18 18:53:21.411 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker Finished
+2020-04-18 18:53:21.412 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Destroying context: MT: [status-listener@tcp://localhost:59231]
+2020-04-18 18:53:21.416 [Thread-1] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqProxy - ZmqProxy [status-listener]: Finished proxy
+2020-04-18 18:53:21.421 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Stopped listener: MT: [status-listener@tcp://localhost:59231]
+2020-04-18 18:55:23.167 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain - Started analysis
+2020-04-18 18:55:23.615 [Thread-1] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqProxy - ZmqProxy [status-listener]: Starting proxy
+2020-04-18 18:55:23.615 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Started listener: MT: [status-listener@tcp://localhost:54329]
+2020-04-18 18:55:23.618 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker started
+2020-04-18 18:55:23.678 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.DataValidationStep - Corona Home is : D:\Analyzer\corona/
+2020-04-18 18:55:23.683 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.DataValidationStep - Corona Log is : D:/JenkinsSetup/workspace/kiranTestingMSBuild/gamma_logs/
+2020-04-18 18:55:23.683 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.UserValidationStep - Running user validation step. URL : http://192.168.2.24:3000/
+2020-04-18 18:55:24.479 [main] INFO  com.acellere.corona.scanboxwrapper.GammaClient - Either user is invalid or username/password is not given. Using token from input json
+2020-04-18 18:55:24.479 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.UserValidationStep - User validation completed.
+2020-04-18 18:55:24.480 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Validating subsystem(s). Number of subsystem(s) found = [f65eccd5aeda6db3a9e4b62b8200a174]
+2020-04-18 18:55:40.136 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Number of valid subsystem(s) = 1
+2020-04-18 18:55:40.136 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Number of invalid subsystem(s) = 0
+2020-04-18 18:55:40.145 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Subsystem validation step completed
+2020-04-18 18:55:40.146 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Running scan box builder step.
+2020-04-18 18:55:40.238 [main] INFO  com.acellere.corona.scanboxwrapper.utils.RepositoryDataHelper - Git is installed, git version 2.14.0.windows.2
+
+2020-04-18 18:55:40.238 [main] INFO  com.acellere.corona.scanboxwrapper.utils.RepositoryDataHelper - .git folder found in basedir also git is installed, setting Repository type to 'GIT'
+2020-04-18 18:55:40.532 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Validating license before analysis for subsystem f65eccd5aeda6db3a9e4b62b8200a174
+2020-04-18 18:55:40.539 [main] INFO  com.acellere.corona.cmx.msg.control.Sources - Base Dir D:/JenkinsSetup/workspace/kiranTestingMSBuild/
+2020-04-18 18:55:40.540 [main] INFO  com.acellere.corona.scanboxwrapper.utils.WrapperUtils - Calculating loc for directory D:/JenkinsSetup/workspace/kiranTestingMSBuild/
+2020-04-18 18:55:40.583 [main] INFO  com.acellere.corona.scanboxwrapper.utils.WrapperUtils - LOC result for directory D:\JenkinsSetup\workspace\kiranTestingMSBuild = 109 lines of code (82 comment, 18 blank)
+2020-04-18 18:55:42.971 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Error validating license for uid f65eccd5aeda6db3a9e4b62b8200a174
+com.acellere.corona.scanboxwrapper.exception.ScanBoxWrapperException: Error validating license
+	at com.acellere.corona.scanboxwrapper.GammaClient.validateLicense(GammaClient.java:199) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.isLicenseValid(ScanSettingJsonGenerationStep.java:134) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.generateJsonIfValidLicense(ScanSettingJsonGenerationStep.java:98) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:68) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:91) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:40) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:26) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.GammaStepsExecutor.execute(GammaStepsExecutor.java:29) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain.main(StandaloneWrapperMain.java:49) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+Caused by: com.mashape.unirest.http.exceptions.UnirestException: java.lang.RuntimeException: java.lang.RuntimeException: org.json.JSONException: A JSONArray text must start with '[' at 1 [character 2 line 1]
+	at com.mashape.unirest.http.HttpClientHelper.request(HttpClientHelper.java:143) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.request.BaseRequest.asJson(BaseRequest.java:68) ~[unirest-java-1.4.9.jar:?]
+	at com.acellere.corona.scanboxwrapper.GammaClient.validateLicense(GammaClient.java:191) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	... 12 more
+Caused by: java.lang.RuntimeException: java.lang.RuntimeException: org.json.JSONException: A JSONArray text must start with '[' at 1 [character 2 line 1]
+	at com.mashape.unirest.http.HttpResponse.<init>(HttpResponse.java:106) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.http.HttpClientHelper.request(HttpClientHelper.java:139) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.request.BaseRequest.asJson(BaseRequest.java:68) ~[unirest-java-1.4.9.jar:?]
+	at com.acellere.corona.scanboxwrapper.GammaClient.validateLicense(GammaClient.java:191) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	... 12 more
+Caused by: java.lang.RuntimeException: org.json.JSONException: A JSONArray text must start with '[' at 1 [character 2 line 1]
+	at com.mashape.unirest.http.JsonNode.<init>(JsonNode.java:51) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.http.HttpResponse.<init>(HttpResponse.java:95) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.http.HttpClientHelper.request(HttpClientHelper.java:139) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.request.BaseRequest.asJson(BaseRequest.java:68) ~[unirest-java-1.4.9.jar:?]
+	at com.acellere.corona.scanboxwrapper.GammaClient.validateLicense(GammaClient.java:191) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	... 12 more
+Caused by: org.json.JSONException: A JSONArray text must start with '[' at 1 [character 2 line 1]
+	at org.json.JSONTokener.syntaxError(JSONTokener.java:433) ~[json-20160212.jar:?]
+	at org.json.JSONArray.<init>(JSONArray.java:106) ~[json-20160212.jar:?]
+	at org.json.JSONArray.<init>(JSONArray.java:145) ~[json-20160212.jar:?]
+	at com.mashape.unirest.http.JsonNode.<init>(JsonNode.java:48) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.http.HttpResponse.<init>(HttpResponse.java:95) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.http.HttpClientHelper.request(HttpClientHelper.java:139) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.request.BaseRequest.asJson(BaseRequest.java:68) ~[unirest-java-1.4.9.jar:?]
+	at com.acellere.corona.scanboxwrapper.GammaClient.validateLicense(GammaClient.java:191) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	... 12 more
+2020-04-18 18:55:42.982 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Invalid license for repository f65eccd5aeda6db3a9e4b62b8200a174
+2020-04-18 18:55:42.983 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Error while creating Scansettings json for repository f65eccd5aeda6db3a9e4b62b8200a174
+2020-04-18 18:55:42.993 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain - 
+Error in Gammascanner. Reason: 
+com.acellere.corona.scanboxwrapper.exception.ScanBoxWrapperException: There are no subsystems to be analysed.
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:78) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:91) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:40) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:26) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.GammaStepsExecutor.execute(GammaStepsExecutor.java:29) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain.main(StandaloneWrapperMain.java:49) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+2020-04-18 18:55:42.993 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Stopping listener: MT: [status-listener@tcp://localhost:54329]
+2020-04-18 18:55:43.623 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker Exiting
+2020-04-18 18:55:43.624 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker Finished
+2020-04-18 18:55:43.624 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Destroying context: MT: [status-listener@tcp://localhost:54329]
+2020-04-18 18:55:43.632 [Thread-1] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqProxy - ZmqProxy [status-listener]: Finished proxy
+2020-04-18 18:55:43.644 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Stopped listener: MT: [status-listener@tcp://localhost:54329]
+2020-04-18 18:56:46.618 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain - Started analysis
+2020-04-18 18:56:47.070 [Thread-1] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqProxy - ZmqProxy [status-listener]: Starting proxy
+2020-04-18 18:56:47.070 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Started listener: MT: [status-listener@tcp://localhost:63506]
+2020-04-18 18:56:47.074 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker started
+2020-04-18 18:56:47.131 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.DataValidationStep - Corona Home is : D:\Analyzer\corona/
+2020-04-18 18:56:47.135 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.DataValidationStep - Corona Log is : D:/JenkinsSetup/workspace/kiranTestingMSBuild/gamma_logs/
+2020-04-18 18:56:47.135 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.UserValidationStep - Running user validation step. URL : http://192.168.2.24:3000/
+2020-04-18 18:56:47.876 [main] INFO  com.acellere.corona.scanboxwrapper.GammaClient - Either user is invalid or username/password is not given. Using token from input json
+2020-04-18 18:56:47.876 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.UserValidationStep - User validation completed.
+2020-04-18 18:56:47.877 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Validating subsystem(s). Number of subsystem(s) found = [f65eccd5aeda6db3a9e4b62b8200a174]
+2020-04-18 18:57:07.924 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Error while validating subsystem f65eccd5aeda6db3a9e4b62b8200a174
+com.acellere.corona.scanboxwrapper.exception.ScanBoxWrapperException: Unable to validate subsystemf65eccd5aeda6db3a9e4b62b8200a174
+	at com.acellere.corona.scanboxwrapper.GammaClient.validateSubsystem(GammaClient.java:119) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:57) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:40) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:26) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.GammaStepsExecutor.execute(GammaStepsExecutor.java:29) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain.main(StandaloneWrapperMain.java:49) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+Caused by: com.mashape.unirest.http.exceptions.UnirestException: org.apache.http.conn.ConnectTimeoutException: Connect to 192.168.2.24:3000 [/192.168.2.24] failed: connect timed out
+	at com.mashape.unirest.http.HttpClientHelper.request(HttpClientHelper.java:143) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.request.BaseRequest.asString(BaseRequest.java:56) ~[unirest-java-1.4.9.jar:?]
+	at com.acellere.corona.scanboxwrapper.GammaClient.validateSubsystem(GammaClient.java:117) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	... 8 more
+Caused by: org.apache.http.conn.ConnectTimeoutException: Connect to 192.168.2.24:3000 [/192.168.2.24] failed: connect timed out
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:150) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:353) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:380) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:107) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55) ~[httpclient-4.5.2.jar:4.5.2]
+	at com.mashape.unirest.http.HttpClientHelper.request(HttpClientHelper.java:138) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.request.BaseRequest.asString(BaseRequest.java:56) ~[unirest-java-1.4.9.jar:?]
+	at com.acellere.corona.scanboxwrapper.GammaClient.validateSubsystem(GammaClient.java:117) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	... 8 more
+Caused by: java.net.SocketTimeoutException: connect timed out
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method) ~[?:1.8.0_151]
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85) ~[?:1.8.0_151]
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350) ~[?:1.8.0_151]
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206) ~[?:1.8.0_151]
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188) ~[?:1.8.0_151]
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172) ~[?:1.8.0_151]
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[?:1.8.0_151]
+	at java.net.Socket.connect(Socket.java:589) ~[?:1.8.0_151]
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:74) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:141) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:353) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:380) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:107) ~[httpclient-4.5.2.jar:4.5.2]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55) ~[httpclient-4.5.2.jar:4.5.2]
+	at com.mashape.unirest.http.HttpClientHelper.request(HttpClientHelper.java:138) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.request.BaseRequest.asString(BaseRequest.java:56) ~[unirest-java-1.4.9.jar:?]
+	at com.acellere.corona.scanboxwrapper.GammaClient.validateSubsystem(GammaClient.java:117) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	... 8 more
+2020-04-18 18:57:07.950 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Number of valid subsystem(s) = 0
+2020-04-18 18:57:07.950 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Number of invalid subsystem(s) = 1
+2020-04-18 18:57:07.962 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain - 
+Error in Gammascanner. Reason: 
+com.acellere.corona.scanboxwrapper.exception.ScanBoxWrapperException: No subsystems are available for analysis
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:88) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:40) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:26) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.GammaStepsExecutor.execute(GammaStepsExecutor.java:29) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain.main(StandaloneWrapperMain.java:49) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+2020-04-18 18:57:07.963 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Stopping listener: MT: [status-listener@tcp://localhost:63506]
+2020-04-18 18:57:08.079 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker Exiting
+2020-04-18 18:57:08.080 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker Finished
+2020-04-18 18:57:08.080 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Destroying context: MT: [status-listener@tcp://localhost:63506]
+2020-04-18 18:57:08.082 [Thread-1] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqProxy - ZmqProxy [status-listener]: Finished proxy
+2020-04-18 18:57:08.089 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Stopped listener: MT: [status-listener@tcp://localhost:63506]
+2020-04-18 19:01:27.536 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain - Started analysis
+2020-04-18 19:01:28.024 [Thread-1] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqProxy - ZmqProxy [status-listener]: Starting proxy
+2020-04-18 19:01:28.024 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Started listener: MT: [status-listener@tcp://localhost:56177]
+2020-04-18 19:01:28.027 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker started
+2020-04-18 19:01:28.093 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.DataValidationStep - Corona Home is : D:\Analyzer\corona/
+2020-04-18 19:01:28.097 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.DataValidationStep - Corona Log is : D:/JenkinsSetup/workspace/kiranTestingMSBuild/gamma_logs/
+2020-04-18 19:01:28.098 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.UserValidationStep - Running user validation step. URL : http://192.168.2.24:3000/
+2020-04-18 19:01:28.969 [main] INFO  com.acellere.corona.scanboxwrapper.GammaClient - Either user is invalid or username/password is not given. Using token from input json
+2020-04-18 19:01:28.969 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.UserValidationStep - User validation completed.
+2020-04-18 19:01:28.970 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Validating subsystem(s). Number of subsystem(s) found = [f65eccd5aeda6db3a9e4b62b8200a174]
+2020-04-18 19:01:30.234 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Number of valid subsystem(s) = 1
+2020-04-18 19:01:30.234 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Number of invalid subsystem(s) = 0
+2020-04-18 19:01:30.242 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep - Subsystem validation step completed
+2020-04-18 19:01:30.243 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Running scan box builder step.
+2020-04-18 19:01:30.349 [main] INFO  com.acellere.corona.scanboxwrapper.utils.RepositoryDataHelper - Git is installed, git version 2.14.0.windows.2
+
+2020-04-18 19:01:30.350 [main] INFO  com.acellere.corona.scanboxwrapper.utils.RepositoryDataHelper - .git folder found in basedir also git is installed, setting Repository type to 'GIT'
+2020-04-18 19:01:30.665 [main] INFO  com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Validating license before analysis for subsystem f65eccd5aeda6db3a9e4b62b8200a174
+2020-04-18 19:01:30.672 [main] INFO  com.acellere.corona.cmx.msg.control.Sources - Base Dir D:/JenkinsSetup/workspace/kiranTestingMSBuild/
+2020-04-18 19:01:30.673 [main] INFO  com.acellere.corona.scanboxwrapper.utils.WrapperUtils - Calculating loc for directory D:/JenkinsSetup/workspace/kiranTestingMSBuild/
+2020-04-18 19:01:30.710 [main] INFO  com.acellere.corona.scanboxwrapper.utils.WrapperUtils - LOC result for directory D:\JenkinsSetup\workspace\kiranTestingMSBuild = 0 lines of code (0 comment, 0 blank)
+2020-04-18 19:01:31.007 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Error validating license for uid f65eccd5aeda6db3a9e4b62b8200a174
+com.acellere.corona.scanboxwrapper.exception.ScanBoxWrapperException: Error validating license
+	at com.acellere.corona.scanboxwrapper.GammaClient.validateLicense(GammaClient.java:199) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.isLicenseValid(ScanSettingJsonGenerationStep.java:134) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.generateJsonIfValidLicense(ScanSettingJsonGenerationStep.java:98) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:68) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:91) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:40) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:26) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:1) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.GammaStepsExecutor.execute(GammaStepsExecutor.java:29) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain.main(StandaloneWrapperMain.java:49) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+Caused by: com.mashape.unirest.http.exceptions.UnirestException: java.lang.RuntimeException: java.lang.RuntimeException: org.json.JSONException: A JSONArray text must start with '[' at 1 [character 2 line 1]
+	at com.mashape.unirest.http.HttpClientHelper.request(HttpClientHelper.java:143) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.request.BaseRequest.asJson(BaseRequest.java:68) ~[unirest-java-1.4.9.jar:?]
+	at com.acellere.corona.scanboxwrapper.GammaClient.validateLicense(GammaClient.java:191) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	... 12 more
+Caused by: java.lang.RuntimeException: java.lang.RuntimeException: org.json.JSONException: A JSONArray text must start with '[' at 1 [character 2 line 1]
+	at com.mashape.unirest.http.HttpResponse.<init>(HttpResponse.java:106) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.http.HttpClientHelper.request(HttpClientHelper.java:139) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.request.BaseRequest.asJson(BaseRequest.java:68) ~[unirest-java-1.4.9.jar:?]
+	at com.acellere.corona.scanboxwrapper.GammaClient.validateLicense(GammaClient.java:191) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	... 12 more
+Caused by: java.lang.RuntimeException: org.json.JSONException: A JSONArray text must start with '[' at 1 [character 2 line 1]
+	at com.mashape.unirest.http.JsonNode.<init>(JsonNode.java:51) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.http.HttpResponse.<init>(HttpResponse.java:95) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.http.HttpClientHelper.request(HttpClientHelper.java:139) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.request.BaseRequest.asJson(BaseRequest.java:68) ~[unirest-java-1.4.9.jar:?]
+	at com.acellere.corona.scanboxwrapper.GammaClient.validateLicense(GammaClient.java:191) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	... 12 more
+Caused by: org.json.JSONException: A JSONArray text must start with '[' at 1 [character 2 line 1]
+	at org.json.JSONTokener.syntaxError(JSONTokener.java:433) ~[json-20160212.jar:?]
+	at org.json.JSONArray.<init>(JSONArray.java:106) ~[json-20160212.jar:?]
+	at org.json.JSONArray.<init>(JSONArray.java:145) ~[json-20160212.jar:?]
+	at com.mashape.unirest.http.JsonNode.<init>(JsonNode.java:48) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.http.HttpResponse.<init>(HttpResponse.java:95) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.http.HttpClientHelper.request(HttpClientHelper.java:139) ~[unirest-java-1.4.9.jar:?]
+	at com.mashape.unirest.request.BaseRequest.asJson(BaseRequest.java:68) ~[unirest-java-1.4.9.jar:?]
+	at com.acellere.corona.scanboxwrapper.GammaClient.validateLicense(GammaClient.java:191) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	... 12 more
+2020-04-18 19:01:31.020 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Invalid license for repository f65eccd5aeda6db3a9e4b62b8200a174
+2020-04-18 19:01:31.021 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep - Error while creating Scansettings json for repository f65eccd5aeda6db3a9e4b62b8200a174
+2020-04-18 19:01:31.036 [main] ERROR com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain - 
+Error in Gammascanner. Reason: 
+com.acellere.corona.scanboxwrapper.exception.ScanBoxWrapperException: There are no subsystems to be analysed.
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:78) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.ScanSettingJsonGenerationStep.process(ScanSettingJsonGenerationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:91) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.SubsystemValidationStep.process(SubsystemValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:40) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.UserValidationStep.process(UserValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:26) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.DataValidationStep.process(DataValidationStep.java:1) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.GammaStepsExecutor.execute(GammaStepsExecutor.java:29) ~[scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+	at com.acellere.corona.scanboxwrapper.standalone.StandaloneWrapperMain.main(StandaloneWrapperMain.java:49) [scanboxwrapper-20.3.0-SNAPSHOT.jar:?]
+2020-04-18 19:01:31.037 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Stopping listener: MT: [status-listener@tcp://localhost:56177]
+2020-04-18 19:01:32.031 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker Exiting
+2020-04-18 19:01:32.032 [Thread-2] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ServerWorker - ServerWorker [name=status-listener]: Server worker Finished
+2020-04-18 19:01:32.033 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Destroying context: MT: [status-listener@tcp://localhost:56177]
+2020-04-18 19:01:32.034 [Thread-1] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqProxy - ZmqProxy [status-listener]: Finished proxy
+2020-04-18 19:01:32.042 [main] INFO  com.acellere.corona.cmx.messaging.zmq.mt.ZmqListenerMT - Stopped listener: MT: [status-listener@tcp://localhost:56177]
