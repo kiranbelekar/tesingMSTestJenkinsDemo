@@ -1,0 +1,57 @@
+{
+	"gammaAccess": {
+		"url": "http://192.168.2.24:3000",
+		"userName": "windows@embold.io",
+		"password": "admin1234"
+	},
+	"repositories": [{
+		"dataDir": "D:/mstestTemp",
+		"repository": {
+			"uid": "f65eccd5aeda6db3a9e4b62b8200a174",
+			"projectName": "MS-Test",
+			"languages": [
+				"C_SHARP"
+			],
+			"sources": {
+				"baseDir": "D:\\JenkinsSetup\\workspace\\kiranTestingMSBuild",
+				"exclusions": []
+			}
+		},
+		"settings": {
+			"additionalOptions": [],
+			"includePaths": []
+		},
+		"modules": {
+			"codeissues": [{
+					"name": "gamma_cs",
+					"enabled": true,
+					"config": {
+						"rules": [],
+						"options": []
+					}
+				},
+				{
+					"name": "gamma_generic",
+					"enabled": false,
+					"config": {
+						"rules": [],
+						"options": [{
+							"name": "reportDir",
+							"type": "upload",
+							"value": "",
+							"required": true
+						}]
+					}
+				}
+			],
+			"relevance": [{
+				"name": "relevance",
+				"enabled": true,
+				"config": {
+					"rules": [],
+					"options": []
+				}
+			}]
+		}
+	}]
+}
