@@ -1,6 +1,6 @@
 {
 	"gammaAccess": {
-		"url": "http://192.168.2.52:3000",
+		"url": "http://192.168.2.24:3000",
 		"userName": "windows@embold.io",
 		"password": "admin1234"
 	},
