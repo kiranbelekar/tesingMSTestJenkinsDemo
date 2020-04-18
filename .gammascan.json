@@ -7,7 +7,7 @@
 	"repositories": [{
 		"dataDir": "D:/mstestTemp",
 		"repository": {
-			"uid": "f65eccd5aeda6db3a9e4b62b8200a174",
+			"uid": "b7698a729ce6ae89f2cbd4bd9c897b62",
 			"projectName": "MS-Test",
 			"languages": [
 				"C_SHARP"
