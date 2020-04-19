@@ -1,86 +1,86 @@
 {
-    "gammaAccess": {
-        "url": "http://192.168.2.24:3000",
-        "userName": "windows@embold.io",
-        "password": "admin1234"
-    },
-    "repositories": [
-        {
-            "dataDir": "D:/mstestTemp",
-            "repository": {
-                "uid": "7cef71f56509685de03549197b06b9ab",
-                "projectName": "Aa_Kiran",
-                "languages": [
-                    "C_SHARP"
-                ],
-                "sources": {
-                    "baseDir": "D:\\JenkinsSetup\\workspace\\kiranTestingMSBuild",
-                    "exclusions": []
-                }
-            },
-            "settings": {
-                "additionalOptions": [],
-                "includePaths": []
-            },
-            "modules": {
-                "codeissues": [
-                    {
-                        "name": "gamma_cs",
-                        "enabled": true,
-                        "config": {
-                            "rules": [],
-                            "options": []
-                        }
-                    },
-                    {
-                        "name": "gamma_generic",
-                        "enabled": false,
-                        "config": {
-                            "rules": [],
-                            "options": [
-                                {
-                                    "name": "reportDir",
-                                    "type": "upload",
-                                    "value": "",
-                                    "required": true
-                                }
-                            ]
-                        }
-                    }
-                ],
-                "unittest": [
-                    {
-                        "name": "mstest",
-                        "enabled": true,
-                        "config": {
-                            "rules": [],
-                            "options": [
-                                {
-                                    "name": "reportDir",
-                                    "type": "upload",
-                                    "value": "",
-                                    "required": true
-                                }
-                            ]
-                        }
-                    }
-                ],
-                "relevance": [
-                    {
-                        "name": "relevance",
-                        "enabled": true,
-                        "config": {
-                            "rules": [],
-                            "options": [
-                                {
-                                    "name": "mode",
-                                    "value": "git"
-                                }
-                            ]
-                        }
-                    }
-                ]
-            }
-        }
-    ]
+	"gammaAccess": {
+		"url": "http://192.168.2.71:3000",
+		"userName": "chandrashekhar.bhosale@embold.io",
+		"password": "admin1234"
+	},
+	"repositories": [
+		{
+			"dataDir": "D:/mstestTemp",
+			"repository": {
+				"uid": "7066a24b9f56778c35be25d2ed7851ee",
+				"projectName": "kiranTestingMSBuild",
+				"languages": [
+					"C_SHARP"
+				],
+				"sources": {
+					"baseDir": "D:\\JenkinsSetup\\workspace\\kiranTestingMSBuild",
+					"exclusions": []
+				}
+			},
+			"settings": {
+				"additionalOptions": [],
+				"includePaths": []
+			},
+			"modules": {
+				"codeissues": [
+					{
+						"name": "gamma_cs",
+						"enabled": true,
+						"config": {
+							"rules": [],
+							"options": []
+						}
+					},
+					{
+						"name": "gamma_generic",
+						"enabled": false,
+						"config": {
+							"rules": [],
+							"options": [
+								{
+									"name": "reportDir",
+									"type": "upload",
+									"value": "",
+									"required": true
+								}
+							]
+						}
+					}
+				],
+				"unittest": [
+					{
+						"name": "mstest",
+						"enabled": true,
+						"config": {
+							"rules": [],
+							"options": [
+								{
+									"name": "reportDir",
+									"type": "upload",
+									"value": "",
+									"required": true
+								}
+							]
+						}
+					}
+				],
+				"relevance": [
+					{
+						"name": "relevance",
+						"enabled": true,
+						"config": {
+							"rules": [],
+							"options": [
+								{
+									"name": "mode",
+									"value": "git"
+								}
+							]
+						}
+					}
+				]
+			}
+		}
+	]
 }
